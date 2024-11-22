@@ -1,3 +1,18 @@
+import Sidebar from "./component/Sidebar";
+import TagsProvider from "./context/TagsContext";
+import AppLayout from "./layout/AppLayout";
+import MainLayout from "./layout/MainLayout";
+
 export default function App() {
-  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+  return (
+    <TagsProvider>
+      <AppLayout>
+        <Sidebar />
+        <MainLayout>
+          <div>Input</div>
+          <div>Notes</div>
+        </MainLayout>
+      </AppLayout>
+    </TagsProvider>
+  );
 }
