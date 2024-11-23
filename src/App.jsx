@@ -1,18 +1,28 @@
+import EntrySection from "./component/EntrySection";
 import Sidebar from "./component/Sidebar";
+import NewEntryProvider from "./context/NewEntryContext";
+import NotesProvider from "./context/NotesContext";
 import TagsProvider from "./context/TagsContext";
+import VisibilityProvider from "./context/VisibilityContext";
 import AppLayout from "./layout/AppLayout";
 import MainLayout from "./layout/MainLayout";
 
 export default function App() {
   return (
     <TagsProvider>
-      <AppLayout>
-        <Sidebar />
-        <MainLayout>
-          <div>Input</div>
-          <div>Notes</div>
-        </MainLayout>
-      </AppLayout>
+      <NotesProvider>
+        <VisibilityProvider>
+          <NewEntryProvider>
+            <AppLayout>
+              <Sidebar />
+              <MainLayout>
+                <EntrySection />
+                <div>Notes</div>
+              </MainLayout>
+            </AppLayout>
+          </NewEntryProvider>
+        </VisibilityProvider>
+      </NotesProvider>
     </TagsProvider>
   );
 }

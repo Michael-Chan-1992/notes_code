@@ -7,14 +7,13 @@ export default function SideBarTag({ tag, isCurrentTag, icon }) {
   return (
     <li
       className={clsx(
-        "sidebar-transition flex items-center rounded-full bg-opacity-30 p-2 text-2xl text-neutral-300 transition-all",
+        "sidebar-transition flex items-center rounded-full bg-opacity-20 p-2 text-2xl transition-all",
         "hover:cursor-pointer group-hover:rounded-s-none",
-        isCurrentTag ? "bg-yellow-500" : "hover:bg-zinc-700",
+        isCurrentTag ? "bg-amber-600" : "hover:bg-zinc-700",
       )}
       onClick={() => setCurrentFilterTag(tag)}
     >
       <span>{icon}</span>
-      {/* <span className="ml-4 hidden text-sm group-hover:block"> */}
       <span className="sidebar-transition-delay ml-4 w-0 overflow-hidden text-sm group-hover:w-56">
         {tag}
       </span>
