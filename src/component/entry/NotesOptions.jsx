@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import ColorPicker from "./ColorPicker";
-import { VisibilityContext } from "../context/VisibilityContext";
+import { VisibilityContext } from "../../context/VisibilityContext";
 import TagPicker from "./TagPicker";
 
 export default function NotesOptions() {

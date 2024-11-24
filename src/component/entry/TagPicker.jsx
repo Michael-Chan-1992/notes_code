@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { TagsContext } from "../context/TagsContext";
-import { NewEntryContext } from "../context/NewEntryContext";
+import { TagsContext } from "../../context/TagsContext";
+import { NewEntryContext } from "../../context/NewEntryContext";
 
 export default function TagPicker() {
   const { tags } = useContext(TagsContext);

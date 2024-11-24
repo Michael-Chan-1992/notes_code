@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { NotesContext } from "../context/NotesContext";
-import { TagsContext } from "../context/TagsContext";
+import { NotesContext } from "../../context/NotesContext";
+import { TagsContext } from "../../context/TagsContext";
 import Note from "./Note";
 import NoNotes from "./NoNotes";
 
@@ -13,12 +13,14 @@ export default function NotesSection() {
       ? notes
       : notes.filter((note) => note.tags.includes(currentFilterTag));
 
-  const notesToShow = filteredNotes.map((note) => <Note key={note.id} />);
+  const notesToShow = filteredNotes.map((note) => (
+    <Note key={note.id} {...note} />
+  ));
 
   const noNotesToShow = filteredNotes.length === 0;
 
   return (
-    <section className="flex-1">
+    <section className="flex flex-1 flex-wrap content-start items-start gap-4">
       {noNotesToShow ? <NoNotes /> : notesToShow}
     </section>
   );

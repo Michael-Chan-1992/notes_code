@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { useContext } from "react";
-import { TagsContext } from "../context/TagsContext";
+import { TagsContext } from "../../context/TagsContext";
 
 export default function SideBarTag({ tag, isCurrentTag, icon }) {
   const { setCurrentFilterTag } = useContext(TagsContext);

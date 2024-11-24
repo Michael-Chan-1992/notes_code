@@ -1,9 +1,10 @@
 import clsx from "clsx";
 import { useContext, useRef } from "react";
-import { VisibilityContext } from "../context/VisibilityContext";
-import { NewEntryContext } from "../context/NewEntryContext";
+import { VisibilityContext } from "../../context/VisibilityContext";
+import { NewEntryContext } from "../../context/NewEntryContext";
+import TagsList from "../TagsList";
+import useExpandHeight from "../../hook/useExpandHeight";
 import NotesOptions from "./NotesOptions";
-import useExpandHeight from "../hook/useExpandHeight";
 
 export default function EntryForm({ handleSubmit, isEmptyEntry }) {
   const { setOptionsNotVisible } = useContext(VisibilityContext);
@@ -32,7 +33,7 @@ export default function EntryForm({ handleSubmit, isEmptyEntry }) {
         "flex w-[500px] flex-col gap-5 rounded-lg border px-4 py-2",
         "*:bg-transparent *:outline-none *:placeholder:text-neutral-400",
         newEntry.color === "transparent"
-          ? "border-zinc-300 bg-transparent"
+          ? "border-neutral-500 bg-transparent"
           : `border-transparent ${newEntry.color}`,
       )}
       onSubmit={handleSubmit}
@@ -53,13 +54,7 @@ export default function EntryForm({ handleSubmit, isEmptyEntry }) {
         onChange={(e) => setNewEntry({ ...newEntry, content: e.target.value })}
         ref={contentTextArea}
       />
-      <ul className="flex h-7 gap-2">
-        {newEntry.tags.map((tag) => (
-          <li key={tag} className="rounded-lg border p-1 text-xs">
-            {tag}
-          </li>
-        ))}
-      </ul>
+      <TagsList tags={newEntry.tags} />
       <div className="flex">
         <NotesOptions />
         <button

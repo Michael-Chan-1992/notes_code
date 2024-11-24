@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { useContext } from "react";
-import { NewEntryContext } from "../context/NewEntryContext";
+import { NewEntryContext } from "../../context/NewEntryContext";
 
 export const COLORS = [
   "transparent",

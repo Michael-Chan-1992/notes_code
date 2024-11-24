@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { TagsContext } from "../context/TagsContext";
+import { TagsContext } from "../../context/TagsContext";
 import SideBarTag from "./SideBarTag";
 
 export default function Sidebar() {
