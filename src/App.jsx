@@ -1,4 +1,5 @@
 import EntrySection from "./component/EntrySection";
+import NotesSection from "./component/NotesSection";
 import Sidebar from "./component/Sidebar";
 import NewEntryProvider from "./context/NewEntryContext";
 import NotesProvider from "./context/NotesContext";
@@ -17,7 +18,7 @@ export default function App() {
               <Sidebar />
               <MainLayout>
                 <EntrySection />
-                <div>Notes</div>
+                <NotesSection />
               </MainLayout>
             </AppLayout>
           </NewEntryProvider>
