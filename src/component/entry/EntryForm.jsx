@@ -10,7 +10,7 @@ export default function EntryForm({ handleSubmit, isEmptyEntry }) {
   const { setOptionsNotVisible } = useContext(VisibilityContext);
 
   const { newEntry, setNewEntry } = useContext(NewEntryContext);
-  const { title, content } = newEntry;
+  const { title, content, tags, color } = newEntry;
 
   const contentTextArea = useRef();
   useExpandHeight(contentTextArea);
@@ -32,9 +32,9 @@ export default function EntryForm({ handleSubmit, isEmptyEntry }) {
       className={clsx(
         "flex w-[500px] flex-col gap-5 rounded-lg border px-4 py-2",
         "*:bg-transparent *:outline-none *:placeholder:text-neutral-400",
-        newEntry.color === "transparent"
+        color === "transparent"
           ? "border-neutral-500 bg-transparent"
-          : `border-transparent ${newEntry.color}`,
+          : `border-transparent ${color}`,
       )}
       onSubmit={handleSubmit}
       onClick={handleFormClick}
@@ -54,7 +54,7 @@ export default function EntryForm({ handleSubmit, isEmptyEntry }) {
         onChange={(e) => setNewEntry({ ...newEntry, content: e.target.value })}
         ref={contentTextArea}
       />
-      <TagsList tags={newEntry.tags} />
+      <TagsList tags={tags} />
       <div className="flex">
         <NotesOptions />
         <button

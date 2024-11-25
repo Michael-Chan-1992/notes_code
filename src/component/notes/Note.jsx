@@ -1,7 +1,10 @@
 import clsx from "clsx";
 import TagsList from "../TagsList";
+import { useContext } from "react";
+import { ModalContext } from "../../context/ModalContext";
 
-export default function Note({ title, content, tags, color }) {
+export default function Note({ title, content, tags, color, id }) {
+  const { setModal } = useContext(ModalContext);
   return (
     <div
       className={clsx(
@@ -10,6 +13,7 @@ export default function Note({ title, content, tags, color }) {
           ? "border-neutral-500 bg-transparent"
           : `border-transparent ${color}`,
       )}
+      onClick={() => setModal({ type: "note", noteId: id })}
     >
       {title && <div className="text-sm font-bold">{title}</div>}
       {content && <div>{content}</div>}

@@ -24,7 +24,7 @@ export default function EditTagsModal() {
         <button
           type="button"
           className="rounded-md px-3 py-1 hover:bg-white hover:bg-opacity-10"
-          onClick={() => setModal("none")}
+          onClick={() => setModal({ type: "none" })}
         >
           Close
         </button>

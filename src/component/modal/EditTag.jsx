@@ -26,7 +26,10 @@ export default function editTag({ currentTag }) {
 
   function handleConfirm() {
     setCurrentTagState("idle");
-    if (tags.includes(tempTag)) return;
+    if (tags.includes(tempTag)) {
+      setTempTag(currentTag);
+      return;
+    }
     updateTags(currentTag, tempTag);
     updateNotesTags(currentTag, tempTag);
     if (currentFilterTag !== currentTag) return;

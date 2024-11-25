@@ -8,7 +8,7 @@ export default function SideBarTag({ tag, isCurrentTag, icon }) {
   const { setModal } = useContext(ModalContext);
   function handleClick() {
     if (tag === TAGS_ENUM.edit) {
-      setModal("edit");
+      setModal({ type: "tags" });
     } else {
       setCurrentFilterTag(tag);
     }
