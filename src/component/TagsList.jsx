@@ -1,6 +1,6 @@
 export default function TagsList({ tags }) {
   return (
-    <ul className="flex h-7 flex-wrap gap-2">
+    <ul className="flex flex-wrap gap-2">
       {tags.map((tag) => (
         <li
           key={tag}
