@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 @layer components {
-
   .sidebar-transition:hover,
   .group:hover .sidebar-transition {
     transition: width, box-shadow, border-radius;

@@ -10,8 +10,28 @@ export default function NotesProvider({ children }) {
     setNotes([...notes, newNote]);
   }
 
+  function updateNotesTags(oldName, newName) {
+    setNotes(
+      notes.map((note) => ({
+        ...note,
+        tags: note.tags.map((tag) => (tag === oldName ? newName : tag)),
+      })),
+    );
+  }
+
+  function removeNotesTags(tagToRemove) {
+    setNotes(
+      notes.map((note) => ({
+        ...note,
+        tags: note.tags.filter((tag) => tag !== tagToRemove),
+      })),
+    );
+  }
+
   return (
-    <NotesContext.Provider value={{ notes, addNote }}>
+    <NotesContext.Provider
+      value={{ notes, addNote, updateNotesTags, removeNotesTags }}
+    >
       {children}
     </NotesContext.Provider>
   );

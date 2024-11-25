@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { TagsContext } from "../../context/TagsContext";
+import { TagsContext, TAGS_ENUM } from "../../context/TagsContext";
 import SideBarTag from "./SideBarTag";
 
 export default function Sidebar() {
@@ -17,15 +17,15 @@ export default function Sidebar() {
     <aside className="sidebar-transition group fixed h-dvh w-12 bg-inherit py-2 transition-all hover:w-60 hover:shadow-2xl hover:shadow-black">
       <ul>
         <SideBarTag
-          isCurrentTag={currentFilterTag === "All"}
+          isCurrentTag={currentFilterTag === TAGS_ENUM.all}
           icon="💡"
-          tag="All"
+          tag={TAGS_ENUM.all}
         />
         {tagList}
         <SideBarTag
-          isCurrentTag={currentFilterTag === "Edit"}
+          isCurrentTag={currentFilterTag === TAGS_ENUM.edit}
           icon="✏️"
-          tag="Edit"
+          tag={TAGS_ENUM.edit}
         />
       </ul>
     </aside>

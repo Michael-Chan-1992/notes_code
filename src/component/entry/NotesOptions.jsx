@@ -1,7 +1,8 @@
 import { useContext } from "react";
-import ColorPicker from "./ColorPicker";
 import { VisibilityContext } from "../../context/VisibilityContext";
+import ColorPicker from "./ColorPicker";
 import TagPicker from "./TagPicker";
+import Button from "../Button";
 
 export default function NotesOptions() {
   const {
@@ -23,21 +24,15 @@ export default function NotesOptions() {
 
   return (
     <div className="relative flex gap-1" onClick={(e) => e.stopPropagation()}>
-      <button
-        type="button"
-        className="h-9 w-9 rounded-full hover:bg-white hover:bg-opacity-10"
-        onClick={handleToggleColor}
-      >
+      <Button onClick={handleToggleColor} title="Background color">
         🎨
-      </button>
+      </Button>
+
       {colorPickerVisible && <ColorPicker />}
-      <button
-        type="button"
-        className="h-9 w-9 rounded-full hover:bg-white hover:bg-opacity-10"
-        onClick={handleToggleTag}
-      >
+
+      <Button onClick={handleToggleTag} title="Tags">
         🏷️
-      </button>
+      </Button>
       {tagPickerVisible && <TagPicker />}
     </div>
   );

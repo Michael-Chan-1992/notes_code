@@ -1,6 +1,8 @@
 import EntrySection from "./component/entry/EntrySection";
+import Modal from "./component/modal/Modal";
 import NotesSection from "./component/notes/NotesSection";
 import Sidebar from "./component/siderbar/Sidebar";
+import ModalProvider from "./context/ModalContext";
 import NewEntryProvider from "./context/NewEntryContext";
 import NotesProvider from "./context/NotesContext";
 import TagsProvider from "./context/TagsContext";
@@ -14,13 +16,16 @@ export default function App() {
       <NotesProvider>
         <VisibilityProvider>
           <NewEntryProvider>
-            <AppLayout>
-              <Sidebar />
-              <MainLayout>
-                <EntrySection />
-                <NotesSection />
-              </MainLayout>
-            </AppLayout>
+            <ModalProvider>
+              <AppLayout>
+                <Sidebar />
+                <MainLayout>
+                  <EntrySection />
+                  <NotesSection />
+                </MainLayout>
+                <Modal />
+              </AppLayout>
+            </ModalProvider>
           </NewEntryProvider>
         </VisibilityProvider>
       </NotesProvider>

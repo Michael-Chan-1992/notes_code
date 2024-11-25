@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { NotesContext } from "../../context/NotesContext";
-import { TagsContext } from "../../context/TagsContext";
+import { TagsContext, TAGS_ENUM } from "../../context/TagsContext";
 import Note from "./Note";
 import NoNotes from "./NoNotes";
 
@@ -9,7 +9,7 @@ export default function NotesSection() {
   const { currentFilterTag } = useContext(TagsContext);
 
   const filteredNotes =
-    currentFilterTag === "All"
+    currentFilterTag === TAGS_ENUM.all
       ? notes
       : notes.filter((note) => note.tags.includes(currentFilterTag));
 
