@@ -5,6 +5,7 @@ import { ModalContext } from "../../context/ModalContext";
 
 export default function Note({ title, content, tags, color, id }) {
   const { setModal } = useContext(ModalContext);
+
   return (
     <div
       className={clsx(
@@ -18,6 +19,9 @@ export default function Note({ title, content, tags, color, id }) {
       {title && <div className="text-sm font-bold">{title}</div>}
       {content && <div>{content}</div>}
       {tags.length > 0 && <TagsList tags={tags} />}
+      {!title && !content && tags.length === 0 && (
+        <p className="text-xl text-neutral-400">Blank note</p>
+      )}
     </div>
   );
 }

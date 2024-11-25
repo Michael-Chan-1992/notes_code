@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { TagsContext, TAGS_ENUM } from "../../context/TagsContext";
 import SideBarTag from "./SideBarTag";
+import { VisibilityContext } from "../../context/VisibilityContext";
 
 export default function Sidebar() {
   const { tags, currentFilterTag } = useContext(TagsContext);

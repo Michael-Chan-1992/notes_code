@@ -8,12 +8,12 @@ import { ModalContext } from "../../context/ModalContext";
 export default function EditNotesModal({ noteId }) {
   const { notes, updateNote } = useContext(NotesContext);
   const { newEntry, setNewEntry, defaultEntry } = useContext(NewEntryContext);
-  const { setAllNotVisible } = useContext(VisibilityContext);
+  const { setOptionsNotVisible } = useContext(VisibilityContext);
   const { setModal } = useContext(ModalContext);
 
   function handleSubmit(e) {
     e.preventDefault();
-    setAllNotVisible();
+    setOptionsNotVisible();
     setNewEntry(defaultEntry);
 
     updateNote(newEntry);
