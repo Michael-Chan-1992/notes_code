@@ -40,7 +40,7 @@ export default function Note(note) {
       onClick={handleClick}
     >
       {title && <div className="text-sm font-bold">{title}</div>}
-      {content && <div>{content}</div>}
+      {content && <div className="break-words">{content}</div>}
       {tags.length > 0 && <TagsList tags={tags} />}
       {!title && !content && tags.length === 0 && (
         <p className="text-xl text-neutral-400">Blank note</p>
