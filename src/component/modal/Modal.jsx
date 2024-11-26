@@ -11,8 +11,7 @@ export default function Modal() {
   return (
     <div
       id="modal"
-      className="fixed inset-0 z-10 flex items-center justify-center bg-neutral-900 bg-opacity-70 *:shadow-md *:shadow-zinc-950"
-      // onClick={() => setModal("none")}
+      className="fixed inset-0 z-10 flex items-center justify-center bg-zinc-800 bg-opacity-70 *:shadow-md *:shadow-zinc-950"
     >
       {modal.type === "tags" ? (
         <EditTagsModal />

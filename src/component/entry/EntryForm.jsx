@@ -5,6 +5,7 @@ import { NewEntryContext } from "../../context/NewEntryContext";
 import TagsList from "../TagsList";
 import useExpandHeight from "../../hook/useExpandHeight";
 import NotesOptions from "./NotesOptions";
+import { COLORS } from "./ColorPicker";
 
 export default function EntryForm({ handleSubmit, isEmptyEntry }) {
   const { setOptionsNotVisible } = useContext(VisibilityContext);
@@ -32,9 +33,8 @@ export default function EntryForm({ handleSubmit, isEmptyEntry }) {
       className={clsx(
         "flex w-[500px] flex-col gap-5 rounded-lg border px-4 py-2",
         "*:bg-transparent *:outline-none *:placeholder:text-neutral-400",
-        color === "transparent"
-          ? "border-neutral-500 bg-transparent"
-          : `border-transparent ${color}`,
+        COLORS[color],
+        color === "transparent" ? "border-neutral-500" : `border-transparent`,
       )}
       onSubmit={handleSubmit}
       onClick={handleFormClick}

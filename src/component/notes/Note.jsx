@@ -2,6 +2,7 @@ import clsx from "clsx";
 import TagsList from "../TagsList";
 import { useContext } from "react";
 import { ModalContext } from "../../context/ModalContext";
+import { COLORS } from "../entry/ColorPicker";
 
 export default function Note({ title, content, tags, color, id }) {
   const { setModal } = useContext(ModalContext);
@@ -10,9 +11,8 @@ export default function Note({ title, content, tags, color, id }) {
     <div
       className={clsx(
         "flex w-60 flex-col gap-3 rounded-lg border p-3 shadow-md hover:shadow-zinc-950",
-        color === "transparent"
-          ? "border-neutral-500 bg-transparent"
-          : `border-transparent ${color}`,
+        COLORS[color],
+        color === "transparent" ? "border-neutral-500" : `border-transparent`,
       )}
       onClick={() => setModal({ type: "note", noteId: id })}
     >

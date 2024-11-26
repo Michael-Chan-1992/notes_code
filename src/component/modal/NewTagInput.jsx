@@ -43,7 +43,10 @@ export default function NewTagInput() {
     startEdit();
   }, []);
   return (
-    <li className="flex items-center gap-3">
+    <li
+      className="flex items-center gap-3"
+      onClick={(e) => e.stopPropagation()}
+    >
       {newTagState === "editing" ? cancelButton : addButton}
 
       <input

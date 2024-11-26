@@ -65,7 +65,11 @@ export default function editTag({ currentTag }) {
   );
 
   return (
-    <li className="group flex items-center gap-3" key={currentTag}>
+    <li
+      className="group flex items-center gap-3"
+      key={currentTag}
+      onClick={(e) => e.stopPropagation()}
+    >
       <button className="size-9 shrink-0 group-hover:hidden">🏷️</button>
       <button
         onClick={() => handleDelete(currentTag)}

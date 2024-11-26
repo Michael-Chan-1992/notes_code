@@ -9,7 +9,7 @@ export default function EditTagsModal() {
   const { tags } = useContext(TagsContext);
 
   return (
-    <div className="w-[300px] bg-neutral-700">
+    <div className="w-[300px] bg-zinc-700">
       <div className="m-2">
         <ul className="flex flex-col">
           <p className="text-lg">Edit tags</p>
