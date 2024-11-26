@@ -13,11 +13,7 @@ export default function Modal() {
       id="modal"
       className="fixed inset-0 z-10 flex items-center justify-center bg-zinc-800 bg-opacity-70 *:shadow-md *:shadow-zinc-950"
     >
-      {modal.type === "tags" ? (
-        <EditTagsModal />
-      ) : (
-        <EditNotesModal noteId={modal.noteId} />
-      )}
+      {modal.type === "tags" ? <EditTagsModal /> : <EditNotesModal />}
     </div>
   );
 }

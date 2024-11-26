@@ -49,7 +49,7 @@ export default function EntryForm({ handleSubmit, isEmptyEntry }) {
 
       <textarea
         placeholder="Take a note..."
-        className="resize-none text-sm"
+        className="h-auto resize-none text-sm"
         value={content}
         onChange={(e) => setNewEntry({ ...newEntry, content: e.target.value })}
         ref={contentTextArea}

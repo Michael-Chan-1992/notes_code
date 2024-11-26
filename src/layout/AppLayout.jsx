@@ -12,20 +12,21 @@ export default function AppLayout({ children }) {
 
   const isEmptyEntry = !newEntry.title && !newEntry.content;
 
-  function globalClickCatch(e) {
-    e.preventDefault();
+  function globalClickCatch() {
     setAllNotVisible();
-    setNewEntry(defaultEntry);
 
     if (modal.type !== "none") {
       if (modal.type === "note") {
         updateNote(newEntry);
       }
+      setNewEntry(defaultEntry);
       setModal({ type: "none" });
       return;
     }
 
+    setNewEntry(defaultEntry);
     if (isEmptyEntry) return;
+
     addNote(newEntry);
   }
   return (

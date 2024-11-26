@@ -1,12 +1,12 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { NotesContext } from "../../context/NotesContext";
 import { NewEntryContext } from "../../context/NewEntryContext";
 import EntryForm from "../entry/EntryForm";
 import { VisibilityContext } from "../../context/VisibilityContext";
 import { ModalContext } from "../../context/ModalContext";
 
-export default function EditNotesModal({ noteId }) {
-  const { notes, updateNote } = useContext(NotesContext);
+export default function EditNotesModal() {
+  const { updateNote } = useContext(NotesContext);
   const { newEntry, setNewEntry, defaultEntry } = useContext(NewEntryContext);
   const { setOptionsNotVisible } = useContext(VisibilityContext);
   const { setModal } = useContext(ModalContext);
@@ -19,10 +19,6 @@ export default function EditNotesModal({ noteId }) {
     updateNote(newEntry);
     setModal({ type: "none" });
   }
-
-  useEffect(() => {
-    setNewEntry(notes.find((note) => note.id === noteId));
-  }, []);
 
   return <EntryForm handleSubmit={handleSubmit} isEmptyEntry={false} />;
 }
