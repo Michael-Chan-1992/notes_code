@@ -16,21 +16,26 @@ export default function TagPicker() {
     }
     setNewEntry({ ...newEntry, tags: updatedTags });
   }
+
   return (
     <ul className="absolute left-10 top-9 w-max flex-col rounded-md bg-zinc-800 shadow-lg shadow-zinc-950">
-      {tags.map((tag) => (
-        <li key={tag}>
-          <label className="inline-block w-full px-3 py-2 hover:cursor-pointer hover:bg-white hover:bg-opacity-10">
-            <input
-              type="checkbox"
-              className="mr-2 hover:cursor-pointer"
-              checked={entryTags.includes(tag)}
-              onChange={() => handleTagsChange(tag)}
-            />
-            {tag}
-          </label>
-        </li>
-      ))}
+      {tags.length === 0 ? (
+        <li className="px-3 py-2">No tags available</li>
+      ) : (
+        tags.map((tag) => (
+          <li key={tag}>
+            <label className="inline-block px-3 py-2 hover:cursor-pointer hover:bg-white hover:bg-opacity-10">
+              <input
+                type="checkbox"
+                className="mr-2 hover:cursor-pointer"
+                checked={entryTags.includes(tag)}
+                onChange={() => handleTagsChange(tag)}
+              />
+              {tag}
+            </label>
+          </li>
+        ))
+      )}
     </ul>
   );
 }
