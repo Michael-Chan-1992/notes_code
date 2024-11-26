@@ -6,12 +6,16 @@ import TagsList from "../TagsList";
 import useExpandHeight from "../../hook/useExpandHeight";
 import NotesOptions from "./NotesOptions";
 import { COLORS } from "./ColorPicker";
+import { ModalContext } from "../../context/ModalContext";
+import Button from "../Button";
+import { NotesContext } from "../../context/NotesContext";
 
 export default function EntryForm({ handleSubmit, isEmptyEntry }) {
   const { setOptionsNotVisible } = useContext(VisibilityContext);
-
-  const { newEntry, setNewEntry } = useContext(NewEntryContext);
+  const { modal, setModal } = useContext(ModalContext);
+  const { newEntry, setNewEntry, defaultEntry } = useContext(NewEntryContext);
   const { title, content, tags, color } = newEntry;
+  const { deleteNote } = useContext(NotesContext);
 
   const contentTextArea = useRef();
   useExpandHeight(contentTextArea);
@@ -27,6 +31,28 @@ export default function EntryForm({ handleSubmit, isEmptyEntry }) {
       contentTextArea.current.focus();
     }
   }
+
+  function handleDelete() {
+    if (!confirm("Delete current note?")) return;
+    deleteNote(newEntry);
+    setNewEntry(defaultEntry);
+    setModal({ type: "none" });
+  }
+
+  const saveButton = (
+    <button
+      type="submit"
+      className="rounded-md px-3 py-1 hover:bg-white hover:bg-opacity-10"
+    >
+      {isEmptyEntry ? "Close" : "Save"}
+    </button>
+  );
+
+  const deleteButton = (
+    <Button onClick={handleDelete} title="Delete">
+      🗑️
+    </Button>
+  );
 
   return (
     <form
@@ -55,14 +81,12 @@ export default function EntryForm({ handleSubmit, isEmptyEntry }) {
         ref={contentTextArea}
       />
       <TagsList tags={tags} />
-      <div className="flex">
+      <div className="flex justify-between">
         <NotesOptions />
-        <button
-          type="submit"
-          className="ml-auto rounded-md px-3 py-1 hover:bg-white hover:bg-opacity-10"
-        >
-          {isEmptyEntry ? "Close" : "Save"}
-        </button>
+        <div>
+          {modal.type === "note" && deleteButton}
+          {saveButton}
+        </div>
       </div>
     </form>
   );

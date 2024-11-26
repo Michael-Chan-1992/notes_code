@@ -26,6 +26,10 @@ export default function NotesProvider({ children }) {
     );
   }
 
+  function deleteNote(entryToDelete) {
+    setNotes(notes.filter((note) => note.id !== entryToDelete.id));
+  }
+
   function updateNotesTags(oldName, newName) {
     setNotes(
       notes.map((note) => ({
@@ -46,7 +50,14 @@ export default function NotesProvider({ children }) {
 
   return (
     <NotesContext.Provider
-      value={{ notes, addNote, updateNote, updateNotesTags, removeNotesTags }}
+      value={{
+        notes,
+        addNote,
+        updateNote,
+        deleteNote,
+        updateNotesTags,
+        removeNotesTags,
+      }}
     >
       {children}
     </NotesContext.Provider>
