@@ -14,7 +14,7 @@ export default function Sidebar() {
     />
   ));
   return (
-    <aside className="sidebar-transition group fixed h-dvh w-12 bg-inherit py-2 transition-all hover:w-60 hover:shadow-2xl hover:shadow-black">
+    <aside className="sidebar-transition group fixed z-10 h-dvh w-12 bg-inherit py-2 transition-all hover:w-60 hover:shadow-2xl hover:shadow-black">
       <ul>
         <SideBarTag
           isCurrentTag={currentFilterTag === TAGS_ENUM.all}

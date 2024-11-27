@@ -23,10 +23,7 @@ export default function EntrySection() {
   }
 
   return (
-    <section
-      className="flex items-center justify-center py-5 *:shadow-md *:shadow-zinc-950"
-      // onClick={handleSubmit}
-    >
+    <section className="flex items-center justify-center py-5 *:shadow-md *:shadow-zinc-950">
       {fullEntryVisible ? (
         <EntryForm handleSubmit={handleSubmit} isEmptyEntry={isEmptyEntry} />
       ) : (

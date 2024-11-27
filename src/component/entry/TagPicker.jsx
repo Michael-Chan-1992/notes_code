@@ -18,13 +18,13 @@ export default function TagPicker() {
   }
 
   return (
-    <ul className="absolute left-10 top-9 w-max flex-col rounded-md bg-zinc-800 shadow-lg shadow-zinc-950">
+    <ul className="absolute left-10 top-9 z-10 w-max flex-col rounded-md bg-zinc-800 shadow-lg shadow-zinc-950">
       {tags.length === 0 ? (
         <li className="px-3 py-2">No tags available</li>
       ) : (
         tags.map((tag) => (
           <li key={tag}>
-            <label className="inline-block px-3 py-2 hover:cursor-pointer hover:bg-white hover:bg-opacity-10">
+            <label className="inline-block w-full px-3 py-2 hover:cursor-pointer hover:bg-white hover:bg-opacity-10">
               <input
                 type="checkbox"
                 className="mr-2 hover:cursor-pointer"

@@ -17,7 +17,7 @@ export default function ColorPicker() {
   const { newEntry, setNewEntry } = useContext(NewEntryContext);
   const { color: currentColor } = newEntry;
   return (
-    <div className="absolute top-9 flex gap-5 rounded-md bg-zinc-800 p-3 shadow-lg shadow-zinc-950">
+    <div className="absolute top-9 z-10 flex gap-5 rounded-md bg-zinc-800 p-3 shadow-lg shadow-zinc-950">
       {Object.keys(COLORS).map((color, i) => (
         <div
           key={color}
