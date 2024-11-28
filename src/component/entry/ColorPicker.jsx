@@ -9,7 +9,7 @@ export const COLORS = {
   yellow: "bg-yellow-800",
   green: "bg-green-800",
   blue: "bg-blue-800",
-  voilet: "bg-violet-800",
+  violet: "bg-violet-800",
   purple: "bg-purple-800",
 };
 

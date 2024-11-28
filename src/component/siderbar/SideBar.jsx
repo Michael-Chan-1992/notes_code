@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { TagsContext, TAGS_ENUM } from "../../context/TagsContext";
 import SideBarTag from "./SideBarTag";
+import WordleTag from "./WordleTag";
 
 export default function Sidebar() {
   const { tags, currentFilterTag } = useContext(TagsContext);
@@ -15,7 +16,7 @@ export default function Sidebar() {
   ));
   return (
     <aside className="sidebar-transition group fixed z-10 h-dvh w-12 bg-inherit py-2 transition-all hover:w-60 hover:shadow-2xl hover:shadow-black">
-      <ul>
+      <ul className="flex h-full flex-col">
         <SideBarTag
           isCurrentTag={currentFilterTag === TAGS_ENUM.all}
           icon="💡"
@@ -27,6 +28,7 @@ export default function Sidebar() {
           icon="✏️"
           tag={TAGS_ENUM.edit}
         />
+        <WordleTag />
       </ul>
     </aside>
   );

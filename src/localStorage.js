@@ -18,15 +18,15 @@ const parsedNotes = localStorageNotes
       {
         id: 0,
         title: "Welcome!",
-        content: "This app is built with React, Tailwind CSS, dnd-kit",
+        content: "This app is built with React, Tailwind CSS, dnd-kit 💻",
         tags: [],
-        color: "green",
+        color: "blue",
       },
       {
         id: 1,
         title: "Basic notes function",
         content:
-          "Create, edit and delete notes with title, content, color and tags",
+          "Create, edit and delete notes with title, content, color and tags 📝",
         tags: ["Personal"],
         color: "yellow",
       },
@@ -34,14 +34,14 @@ const parsedNotes = localStorageNotes
         id: 2,
         title: "Tags and filter",
         content:
-          "Tags can be added to each note for easy filtering.\nFilters are shown on the siderbar on the left",
+          "Tags can be added to each note for easy filtering 🏷️\nFilters are shown on the siderbar on the left ⬅️",
         tags: ["Work"],
-        color: "blue",
+        color: "green",
       },
       {
         id: 3,
         title: "Drag and drop",
-        content: "Notes can be reordered by dragging to destinated spot",
+        content: "Notes can be reordered by dragging to the designated slot 🖐️",
         tags: ["School", "Family"],
         color: "red",
       },
@@ -49,9 +49,9 @@ const parsedNotes = localStorageNotes
         id: 4,
         title: "Other personal project",
         content:
-          "Please take a look at -\nWordle Replica\nClick the link in bottom left corner!",
+          "Please take a look at -\nWordle Replica\n\nClick the link in bottom left corner! ↙️",
         tags: [],
-        color: "transparent",
+        color: "violet",
       },
     ];
 
