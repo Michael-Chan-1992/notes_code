@@ -1,33 +1,10 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
+import { parsedNotes } from "../localStorage";
 
 export const NotesContext = createContext();
 
-const defaultNotes = [
-  {
-    id: 1,
-    title: "Title 1",
-    content: "micha@DESKTOP-IU9BHTN MINGW64 ~/WebDev/keep (feature/note-edit)",
-    tags: ["Personal", "School"],
-    color: "red",
-  },
-  {
-    id: 2,
-    title: "Title 2",
-    content: "micha@DESKTOP-IU9BHTN MINGW64 ~/WebDev/keep (feature/note-edit)",
-    tags: ["Work"],
-    color: "transparent",
-  },
-  {
-    id: 3,
-    title: "Title 3",
-    content: "micha@DESKTOP-IU9BHTN MINGW64 ~/WebDev/keep (feature/note-edit)",
-    tags: ["Family"],
-    color: "blue",
-  },
-];
-
 export default function NotesProvider({ children }) {
-  const [notes, setNotes] = useState(defaultNotes);
+  const [notes, setNotes] = useState(parsedNotes);
 
   function addNote(newEntry) {
     const newNote = { ...newEntry, id: Date.now() };
@@ -61,6 +38,10 @@ export default function NotesProvider({ children }) {
       })),
     );
   }
+
+  useEffect(() => {
+    localStorage.setItem("notes", JSON.stringify(notes));
+  }, [notes]);
 
   return (
     <NotesContext.Provider

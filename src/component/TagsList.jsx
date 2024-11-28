@@ -12,7 +12,6 @@ export default function TagsList({ tags }) {
     const checkOverflow = () => {
       const ulWidth = ulRef.current.offsetWidth;
       const overflowTagWidth = calculateOverflowTagWidth();
-      console.log(overflowTagWidth);
       let totalWidth = 0;
       let visible = [];
       let remaining = 0;

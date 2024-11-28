@@ -1,13 +1,12 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
+import { parsedTags } from "../localStorage";
 
 export const TagsContext = createContext();
-
-const DEFAULT = ["Personal", "Work", "Family", "School"];
 
 export const TAGS_ENUM = { all: "Show all", edit: "Edit tags" };
 
 export default function TagsProvider({ children }) {
-  const [tags, setTags] = useState(DEFAULT);
+  const [tags, setTags] = useState(parsedTags);
   const [currentFilterTag, setCurrentFilterTag] = useState(TAGS_ENUM.all);
 
   function updateTags(oldName, newName) {
@@ -21,6 +20,10 @@ export default function TagsProvider({ children }) {
   function addTags(newTag) {
     setTags(tags.concat(newTag));
   }
+
+  useEffect(() => {
+    localStorage.setItem("tags", JSON.stringify(tags));
+  }, [tags]);
 
   return (
     <TagsContext.Provider
