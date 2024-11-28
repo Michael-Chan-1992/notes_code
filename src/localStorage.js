@@ -24,9 +24,8 @@ const parsedNotes = localStorageNotes
       },
       {
         id: 1,
-        title: "Basic notes function",
-        content:
-          "Create, edit and delete notes with title, content, color and tags 📝",
+        title: "Notes taking",
+        content: "Create and edit notes with title, content, color and tags 📝",
         tags: ["Personal"],
         color: "yellow",
       },
