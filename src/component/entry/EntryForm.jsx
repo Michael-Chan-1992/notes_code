@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { useContext, useRef } from "react";
+import { useContext } from "react";
 import { VisibilityContext } from "../../context/VisibilityContext";
 import { NewEntryContext } from "../../context/NewEntryContext";
 import TagsList from "../TagsList";
@@ -17,8 +17,7 @@ export default function EntryForm({ handleSubmit, isEmptyEntry }) {
   const { title, content, tags, color } = newEntry;
   const { deleteNote } = useContext(NotesContext);
 
-  const contentTextArea = useRef();
-  useExpandHeight(contentTextArea);
+  const { elementRef: contentTextArea } = useExpandHeight();
 
   function handleFormClick(e) {
     e.stopPropagation();
@@ -68,6 +67,7 @@ export default function EntryForm({ handleSubmit, isEmptyEntry }) {
       <input
         placeholder="Title"
         className="font-bold"
+        maxLength={25}
         value={title}
         onChange={(e) => setNewEntry({ ...newEntry, title: e.target.value })}
         onKeyDown={handleTitleEnter}

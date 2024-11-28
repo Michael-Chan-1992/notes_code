@@ -1,8 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
-export default function useExpandHeight(ref) {
+export default function useExpandHeight() {
+  const elementRef = useRef();
+
   useEffect(() => {
-    const target = ref.current;
+    const target = elementRef.current;
 
     target.focus();
 
@@ -17,4 +19,6 @@ export default function useExpandHeight(ref) {
 
     return () => target.removeEventListener("input", adjustHeight);
   }, []);
+
+  return { elementRef };
 }

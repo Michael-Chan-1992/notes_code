@@ -52,6 +52,7 @@ export default function NewTagInput() {
       <input
         ref={newTagRef}
         value={newTag}
+        maxLength={20}
         onClick={() => setNewTagState("editing")}
         onChange={(e) => setNewTag(e.target.value)}
         placeholder="Add new tag"

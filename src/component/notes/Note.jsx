@@ -29,7 +29,7 @@ export default function Note(note) {
     transition,
     zIndex: isDragging ? 9999 : 0,
     opacity: isDragging ? 0.9 : 1,
-    cursor: isDragging ? "move" : "default",
+    cursor: isDragging ? "grabbing" : "grab",
   };
 
   const { title, content, tags, color, id } = note;
@@ -62,8 +62,12 @@ export default function Note(note) {
       )}
       onClick={handleClick}
     >
-      {title && <div className="text-sm font-bold">{title}</div>}
-      {content && <div className="break-words">{content}</div>}
+      {title && <div className="line-clamp-1 text-sm font-bold">{title}</div>}
+      {content && (
+        <div className="line-clamp-6 whitespace-pre-wrap break-words">
+          {content}
+        </div>
+      )}
       {!title && !content && (
         <p className="text-xl text-neutral-400">Blank note</p>
       )}
