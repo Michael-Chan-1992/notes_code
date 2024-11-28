@@ -34,7 +34,7 @@ const parsedNotes = localStorageNotes
         id: 2,
         title: "Tags and filter",
         content:
-          "Tags can be added to each note for easy filtering 🏷️\nFilters are shown on the siderbar on the left ⬅️",
+          "Tags can be added to each note for easy filtering 🏷️\nFilters are shown on the sidebar on the left ⬅️",
         tags: ["Work"],
         color: "green",
       },
