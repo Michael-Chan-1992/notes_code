@@ -55,7 +55,7 @@ export default function Note(note) {
       {...attributes}
       {...listeners}
       className={clsx(
-        "flex size-60 flex-col gap-3 rounded-lg border p-3 shadow-md hover:shadow-zinc-950",
+        "flex size-60 touch-none flex-col gap-3 rounded-lg border p-3 shadow-md hover:shadow-zinc-950",
         modal?.noteId === id && "invisible",
         COLORS[color],
         color === "transparent" ? "border-neutral-500" : `border-transparent`,

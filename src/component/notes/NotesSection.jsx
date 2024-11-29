@@ -5,15 +5,13 @@ import Note from "./Note";
 import NoNotes from "./NoNotes";
 import {
   DndContext,
-  DragOverlay,
   useSensor,
   useSensors,
+  PointerSensor,
   MouseSensor,
+  TouchSensor,
 } from "@dnd-kit/core";
-import {
-  restrictToVerticalAxis,
-  restrictToWindowEdges,
-} from "@dnd-kit/modifiers";
+import { restrictToWindowEdges } from "@dnd-kit/modifiers";
 import { arrayMove, SortableContext } from "@dnd-kit/sortable";
 import { VisibilityContext } from "../../context/VisibilityContext";
 import clsx from "clsx";
@@ -23,13 +21,13 @@ export default function NotesSection() {
   const { currentFilterTag } = useContext(TagsContext);
   const { setOptionsNotVisible } = useContext(VisibilityContext);
 
-  const mouseSensor = useSensor(MouseSensor, {
+  const pointerSensor = useSensor(PointerSensor, {
     activationConstraint: {
       distance: 10,
     },
   });
 
-  const sensors = useSensors(mouseSensor);
+  const sensors = useSensors(pointerSensor);
 
   const filteredNotes =
     currentFilterTag === TAGS_ENUM.all
