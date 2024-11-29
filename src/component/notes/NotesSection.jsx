@@ -8,8 +8,6 @@ import {
   useSensor,
   useSensors,
   PointerSensor,
-  MouseSensor,
-  TouchSensor,
 } from "@dnd-kit/core";
 import { restrictToWindowEdges } from "@dnd-kit/modifiers";
 import { arrayMove, SortableContext } from "@dnd-kit/sortable";
@@ -65,7 +63,7 @@ export default function NotesSection() {
         "flex flex-1",
         noNotesToShow
           ? "items-center justify-center"
-          : "flex-wrap content-start gap-4",
+          : "flex-wrap content-start justify-start gap-4",
       )}
     >
       <DndContext
