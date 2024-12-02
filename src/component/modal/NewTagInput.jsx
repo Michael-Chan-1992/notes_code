@@ -56,7 +56,7 @@ export default function NewTagInput() {
         onClick={() => setNewTagState("editing")}
         onChange={(e) => setNewTag(e.target.value)}
         placeholder="Add new tag"
-        className="min-w-0 border-b border-transparent bg-transparent placeholder:text-neutral-300 focus:border-neutral-500 focus:outline-none"
+        className="min-w-0 flex-1 border-b border-transparent bg-transparent placeholder:text-neutral-300 focus:border-neutral-500 focus:outline-none"
       />
 
       <button

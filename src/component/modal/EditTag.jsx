@@ -84,7 +84,7 @@ export default function editTag({ currentTag }) {
         value={tempTag}
         onClick={() => setCurrentTagState("editing")}
         onChange={(e) => setTempTag(e.target.value)}
-        className="min-w-0 border-b border-transparent bg-transparent placeholder:text-neutral-300 focus:border-neutral-500 focus:outline-none"
+        className="min-w-0 flex-1 border-b border-transparent bg-transparent placeholder:text-neutral-300 focus:border-neutral-500 focus:outline-none"
       />
       {currentTagState === "idle" ? editButton : confirmButton}
     </li>
